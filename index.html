@@ -53,4 +53,23 @@
 	app.controller('myCtrol', function($scope){
 			$scope.images = 
 	})
+      (function() {
+        var url = "/getImages";
+        
+        $.ajax({
+          url: url,
+          type: 'GET',
+          dataType: 'JSON',
+          success: function (result, status, xhr) {
+            var images = result.images;
+
+            for (var i = 0; i < images.length; i++) {	
+              console.log(images[i]["src"]);
+            }
+          },
+          error: function (xhr, status, error) {
+            console.log(error);
+          },
+        });
+      })();
 </script>
