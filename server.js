@@ -10,5 +10,5 @@ app.get('*', function (req, res) {
 })
 
 app.listen(65534, function () {
-  console.log("Server is running at 65534")
+	console.log("Server is running at 65534")
 })
