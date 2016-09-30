@@ -10,7 +10,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
-<body ng-app="slideShow" ng-controller="myCtrol">
+<body>
 	<div class="container">
 		<br>
 		<div id="slider" class="carousel slide" data-ride="carousel">
@@ -24,12 +24,14 @@
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div ng-repeat="x in images">
-					<div class="casorsel-item active">
-						<img src="{{x.url}}" alt="{{x.alt}}" width={{x.width}} height={{x.height}}>
-						<div class="carousel-caption">
-							<h3>{{x.Title}}</h3>
-							<p>{{x.Descr}} by {{x.author}}</p>
+				<div ng-app="slideShow" ng-controller="myCtrol">
+					<div ng-repeat="x in database">
+						<div class="item active">
+							<img src="{{x.src}}">
+							<div class="carousel-caption">
+								<h3>{{x.title}}</h3>
+								<!-- <p>{{x.Descr}} by {{x.author}}</p> -->
+							</div>
 						</div>
 					</div>
 				</div>
@@ -50,26 +52,28 @@
 
 <script>
 	var app = angular.module("sliderShow",[]);
-	app.controller('myCtrol', function($scope){
-			$scope.images = 
-	})
-      (function() {
-        var url = "/getImages";
+	app.controller('myCtrol', function($scope, $http){
+			$http.get("getImages.js").success(function(response){
+				$scope.database = response.images;
+			}); 
+	});
+      // (function() {
+      //   var url = "/getImages";
         
-        $.ajax({
-          url: url,
-          type: 'GET',
-          dataType: 'JSON',
-          success: function (result, status, xhr) {
-            var images = result.images;
+      //   $.ajax({
+      //     url: url,
+      //     type: 'GET',
+      //     dataType: 'JSON',
+      //     success: function (result, status, xhr) {
+      //       var images = result.images;
 
-            for (var i = 0; i < images.length; i++) {	
-              console.log(images[i]["src"]);
-            }
-          },
-          error: function (xhr, status, error) {
-            console.log(error);
-          },
-        });
-      })();
+      //       for (var i = 0; i < images.length; i++) {	
+      //         console.log(images[i]["src"]);
+      //       }
+      //     },
+      //     error: function (xhr, status, error) {
+      //       console.log(error);
+      //     },
+      //   });
+      // })();
 </script>
