@@ -21,7 +21,22 @@ var images = [
   },
 ]
 
-exports.index = function (req, res) {
+exports.get = function (req, res) {
   res.setHeader('Content-Type', 'application/json')
   res.send(JSON.stringify({ images }, null, 4))
+}
+
+exports.put = function (req, res) {
+  res.setHeader('Content-Type', 'application/json')
+  res.send(JSON.stringify({ "status" : "Request with type put has been called!" }, null, 4))
+}
+
+exports.post = function (req, res) {
+  res.setHeader('Content-Type', 'application/json')
+  res.send(JSON.stringify({ "status" : "Request with type post has been called!" }, null, 4))
+}
+
+exports.delete = function (req, res) {
+  res.setHeader('Content-Type', 'application/json')
+  res.send(JSON.stringify({ "status" : "Request with delete put has been called!" }, null, 4))
 }
