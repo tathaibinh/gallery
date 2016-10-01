@@ -16,5 +16,5 @@ exports.index = function (req, res) {
 
 exports.pageNotFound = function (req, res) {
 	res.setHeader('Content-Type', 'application/json')
-  res.send(JSON.stringify({ "status" : "Page not found!" }, null, 4))
+	res.send(JSON.stringify({ "status" : "Page not found!" }, null, 4))
 }
