@@ -1,0 +1,5 @@
+{
+  "serverPortNumber" : 8080,
+  "pathToIndexFile" : "/public/index.html",
+  "rootDirectory" : "."
+}
