@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public'));
 *	You may use a Chrome extension called Postman to test these requests
 *	For more information, please go to https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en
 */
-app.get(json.baseUrl, homePage.index)
+app.get('/gallery', homePage.index)
 app.get('/images', images.get)
 app.put('/images', images.put)
 app.post('/images', images.post)
