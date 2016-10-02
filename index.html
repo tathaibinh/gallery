@@ -11,69 +11,50 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
 <body>
-	<div class="container">
-		<br>
-		<div id="slider" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#slider" data-slide-to="1" class="active"></li>
-				<li data-target="#slider" data-slide-to="2"></li>
-				<li data-target="#slider" data-slide-to="3"></li>
-				<li data-target="#slider" data-slide-to="4"></li>
-				<li data-target="#slider" data-slide-to="5"></li>
-			</ol>
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-				<div ng-app="slideShow" ng-controller="myCtrol">
-					<div ng-repeat="x in database">
-						<div class="item active">
-							<img src="{{x.src}}">
-							<div class="carousel-caption">
-								<h3>{{x.title}}</h3>
-								<!-- <p>{{x.Descr}} by {{x.author}}</p> -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Left and right controls -->
-			<a href="#slider" class="left carousel-control" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a href="#slider" class="right carousel-control" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
+	<!-- simple test if can get the images -->
+	<button>click</button>
+		<!-- <button>click</button>
+		<table ng-controller="myCtrl" border="1">
+		<tr ng-repeat="x in records">
+		  <td>{{x.id}}</td>
+		  <td>{{x.title}}</td>
+		</tr>
+		</table> -->
+		<!-- if get images then content will change to images-->
+	<div id="div1">Content</div>
 </body>
 </html>
 
 <script>
-	var app = angular.module("sliderShow",[]);
-	app.controller('myCtrol', function($scope, $http){
-			$http.get("getImages.js").success(function(response){
-				$scope.database = response.images;
-			}); 
-	});
-      // (function() {
-      //   var url = "/getImages";
-        
-      //   $.ajax({
-      //     url: url,
-      //     type: 'GET',
-      //     dataType: 'JSON',
-      //     success: function (result, status, xhr) {
-      //       var images = result.images;
+    (function() {
+      var url = "/getImages";
+      
+      $("button").click(function(){
+	      	$.ajax({
+	        url: url,
+	        type: 'GET',
+	        dataType: 'JSON',
+	        success: function (result, status, xhr) {
+	          var images = result.images;
+	          // test if get images
+	          $("#div1").html(images);
+	          // var app = angular.module("myApp",[]);
+	          // app.controller('myCtrl', function($scope){
+	          // 	$scope.records = images;
+	          // });
 
-      //       for (var i = 0; i < images.length; i++) {	
-      //         console.log(images[i]["src"]);
-      //       }
-      //     },
-      //     error: function (xhr, status, error) {
-      //       console.log(error);
-      //     },
-      //   });
-      // })();
+	          // for (var i = 0; i < images.length; i++) {	
+	          // 	$('#slide').html(images[i])
+	          //   console.log(images[i]["src"]);
+	          // }
+	        },
+	        error: function (xhr, status, error) {
+	          console.log(error);
+	        },
+	      });
+      });
+
+
+
+    })();
 </script>
