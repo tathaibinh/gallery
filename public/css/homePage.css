@@ -1,5 +1,9 @@
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-	width: 70%;
+.carousel-inner > .item > img{
+	width: 80%;
   margin: auto;
+}
+
+#image1{
+	height: 350px;
+	width: 500px;
 }

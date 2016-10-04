@@ -21,8 +21,8 @@
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div ng-repeat="image in images" class="item {{ $index ? '' : 'active' }}">
-					<img src="{{ image.src }}" alt="{{ image.title }}">
+				<div ng-repeat="image in Images" class="item {{ $index ? '' : 'active' }}">
+					<img id="image1" src="{{ image.src }}" alt="{{ image.title }}">
 				</div>
 			</div>
 			<!-- Left and right controls -->
