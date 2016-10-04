@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Photo Share Gallery</title>
+	<title>Gallery Bay</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/homePage.css">
@@ -10,6 +10,28 @@
 </head>
 
 <body>
+	<!-- navbar -->
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand">Gallery Bay</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Album</a></li>
+						<li><a href="#">Artist&nbsp&nbsp&nbsp</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<!-- carousel! -->
 	<div ng-app="slideShowApp" class="container">
 		<div id="slider" ng-controller="slideShowContr" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
