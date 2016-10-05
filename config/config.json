@@ -4,5 +4,5 @@
   "rootDirectory" : ".",
 
   "secret": "welovedog",
-  "databse": "mongodb://username:0221@olympia.modulusmongo.net:27017/yheby2hO"
+  "database": "mongodb://username:0221@olympia.modulusmongo.net:27017/yheby2hO"
 }
