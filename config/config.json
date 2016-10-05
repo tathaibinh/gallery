@@ -1,5 +1,8 @@
 {
   "serverPortNumber" : 8080,
   "pathToIndexFile" : "/public/index.html",
-  "rootDirectory" : "."
+  "rootDirectory" : ".",
+
+  "secret": "welovedog",
+  "databse": "mongodb://username:0221@olympia.modulusmongo.net:27017/yheby2hO"
 }

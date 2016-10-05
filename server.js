@@ -1,8 +1,9 @@
 var express = require('express')
+var mongoose = require('mongoose')
 var json = require('./config/config.json')
 var homePage = require('./routes/index.js')
 var images = require('./controllers/images.js')
-
+var User = require('./app/models/user')
 var app = express()
 
 /*
@@ -27,3 +28,4 @@ app.get('*', homePage.pageNotFound)
 app.listen(json.serverPortNumber, function () {
 	console.log("Server is running at " + json.serverPortNumber)
 })
+
