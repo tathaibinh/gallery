@@ -28,12 +28,13 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Album</a></li>
 						<li><a href="#">Artist</a></li>
-						<li><a href="#" data-toggle="modal" data-target="#myModal">SignIn</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</div>
+	<!-- end navbar -->
 
 	<!-- carousel! -->
 	<div ng-app="slideShowApp" class="container">
@@ -48,7 +49,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div ng-repeat="image in Images" class="item {{ $index ? '' : 'active' }}">
-					<img id="image1" src="{{ image.src }}" alt="{{ image.title }}">
+					<img id="show-images" src="{{ image.src }}" alt="{{ image.title }}">
 					<div class="carousel-caption">
 						<h3>
 							{{image.title}}
@@ -69,47 +70,135 @@
 	</div>
 	<br>
 	<br>
+	<!-- end carousel -->
 
-	<!-- signIn -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby = "myModalLabel" aria-hidden="true" style="display: none;">
+	<!-- login -->
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby = "myloginmodal" aria-hidden="true" style="display: none;">
 		<div class="modal-dialog">
 			<div class="loginmodal-container">
-				<h1>Login Your Account</h1>
-				<br>
-				<form>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
-					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
-				</form>
-				<div class="login-help">
-					<a href="#" data-toggle="modal" data-target="#myModal1">Register</a> - <a href="#">Forgot Password</a>
+				<!-- modal heading -->
+				<div class="panel panel-heading">
+					<div class="panel-title">Login</div>
+					<div style="float: right; font-size: 80%; position:relative; top: -10px"><a id="login-forget" href="#">Forget password?</a></div>
+				</div>
+				<!-- modal body -->
+				<div style="padding-top: 30px" class="panel-body">
+
+					<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+					<form id="login-form" class="form-horizontal" role="form">
+						<!-- text and password input -->
+						<div style="margin-bottom: 15px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input id="login-username" class="form-control" type="text" name="username" value="" placeholder="Username">
+						</div>
+
+						<div style="margin-bottom: 15px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+							<input id="login-password" class="form-control" type="password" name="password" value="" placeholder="Password">
+						</div>
+
+						<!-- checkbox for remember me -->
+						<div class="input-group">
+							<div class="checkbox">
+								<label>
+									<input id= "login-rember" type="checkbox" name="remember" value="1">Remember me
+								</label>
+							</div>
+						</div>
+						
+						<!-- login button -->
+						<div style="margin-top: 10px" class="form-group">
+							<div class="col-md-12">
+								<a id="login-button" href="#" class="btn btn-default">Login</a>
+							</div>
+						</div>
+						
+						<!-- create account if user dont have one -->
+						<div class="form-group">
+	            <div class="col-md-12 control">
+	                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+	                  <span style="color: #777">Don't have an account?</span> 
+	                	<a href="#" onclick="$('#login-modal').modal('hide'); $('#signup-modal').modal('show')">
+	                    Sign Up Here
+	               		</a>
+	                </div>
+	            </div>
+	       	 	</div>
+
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- end login-->
 
-	<!-- Register -->
-	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby = "myModalLabel" aria-hidden="true" style="display: none;">
+	<!-- signup -->
+	<div class="modal fade" id="signup-modal" role="dialog" aria-labelledby ="mysignupmodal" aria-hidden="true" style="display: none;">
 		<div class="modal-dialog">
 			<div class="loginmodal-container">
-				<h1>Register Your Account</h1>
-				<br>
-				<form>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
-					<input type="submit" name="login" class="login loginmodal-submit" value="Register">
-				</form>
-				<div class="login-help">
-					<a href="#">Register</a> - <a href="#">Forgot Password</a>
+				<!-- signup heading -->
+				<div class="panel panel-heading">
+					<div class="panel-title">Sign Up</div>
+					<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signup-modal').modal('hide'); $('#login-modal').modal('show')">Login</a></div>
+				</div>
+				<!-- signup boday -->
+				<div class="panel-body">
+					<form class="form-horizontal" role="form">
+
+						<div class="form-group">
+							<label for="email" class="col-md-3 control-label">Email</label>
+							<div class="col-md-9">
+								<input id="signup-email" type="text" class="form-control" name="email" placeholder="Email Address">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="firstname" class="col-md-3 control-label">First Name</label>
+							<div class="col-md-9">
+								<input id="signup-firstname" type="text" class="form-control" name="firstname" placeholder="First Name">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="lastname" class="col-md-3 control-label">Last Name</label>
+							<div class="col-md-9">
+								<input id="signup-lastname" type="text" class="form-control" name="lastname" placeholder="Last Name">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="col-md-3 control-label">Password</label>
+							<div class="col-md-9">
+								<input id="signup-password" type="password" class="form-control" name="password" placeholder="Password">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="col-md-3 control-label">Confirm Password</label>
+							<div class="col-md-9">
+								<input id="signup-password-confirm" type="password" class="form-control" name="password" placeholder="Re-type Your Password">
+							</div>
+						</div>
+
+						<!-- signup button -->
+						<div class="form-group">
+							<div class="col-md-offset-3 col-md-9">
+								<button id="signup-button" type="button" class="btn btn-default">Sign Up</button>
+							</div>
+						</div>
+
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- end signup -->
 
 	<!-- footer -->
-	<footer class="container-fluid text-center">
-		<p>Website Made By Baron and Jeffery</p>
+	<footer class="container-fluid bgfooter text-center">
+		<p>Website Made By <a href="">Baron</a> and <a href="">Jeffery</a></p>
 	</footer>
+	<!-- end footer -->
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
