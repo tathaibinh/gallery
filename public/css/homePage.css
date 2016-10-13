@@ -12,7 +12,7 @@
 
 /*NAVBAR*/
 .navbar {
-      padding-top: 15px;
+      padding-top: 25px;
       padding-bottom: 25px;
       border: 0;
       border-radius: 0;
@@ -97,3 +97,9 @@ label{
 	color: #777;
 }
 /*END OF PANEL TITLE*/
+
+/*MODAL FOCUS(this is to remove the blue border of the modal href)*/
+a:focus { 
+    outline: none !important;
+ }
+ /*END OF MODAL FOCUS*/
