@@ -3,6 +3,8 @@ var json = require('./config/config.json')
 var homePage = require('./routes/index.js')
 var images = require('./controllers/images.js')
 var user = require('./controllers/user.js')
+var bodyParser = require('body-parser')
+
 var app = express()
 // // get an instance of the router for api routes
 // var apiRoutes = express.Router();
@@ -14,6 +16,8 @@ var app = express()
 *	For more information, please go to http://expressjs.com/en/starter/static-files.html
 */
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 /*
 *	You may use a Chrome extension called Postman to test these requests
@@ -25,7 +29,8 @@ app.put('/images', images.put)
 app.post('/images', images.post)
 app.delete('/images', images.delete)
 app.get('/setup', user.setup)
-app.get('/users')
+app.get('/listusers', user.listUsers)
+app.post('/authenticate', user.authenticate)
 app.get('*', homePage.pageNotFound)
 
 app.listen(json.serverPortNumber, function () {
