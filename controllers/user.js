@@ -5,9 +5,12 @@ var config = require('../config/config.json')
 mongoose.connect(config.database);
 
 exports.create = function (req, res) {
-	var user = new User({ 
-		name: req.query.name,
+	var user = new User({
+		email:req.query.email,
+		first_name: req.query.first_name,
+		last_name: req.query.last_name,
 		password: req.query.password,
+		confirm_password: req.query.confirm_password,
 		admin: true
 	});
 
