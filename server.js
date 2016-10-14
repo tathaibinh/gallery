@@ -4,6 +4,8 @@ var homePage = require('./routes/index.js')
 var images = require('./controllers/images.js')
 var user = require('./controllers/user.js')
 var app = express()
+// // get an instance of the router for api routes
+// var apiRoutes = express.Router();
 
 /*
 *	In order to serve static file in mean stack, we need to use express.static built-in middleware function in Express.
@@ -22,7 +24,8 @@ app.get('/images', images.get)
 app.put('/images', images.put)
 app.post('/images', images.post)
 app.delete('/images', images.delete)
-app.get('/setup', user.create)
+app.get('/setup', user.setup)
+app.get('/users')
 app.get('*', homePage.pageNotFound)
 
 app.listen(json.serverPortNumber, function () {
