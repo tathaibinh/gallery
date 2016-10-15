@@ -1,4 +1,4 @@
-var signupApp = angular.module('signup-app', []);
+var signupApp = angular.module('account-app', []);
 signupApp.controller('signup-controller', function ($scope, $http) {
   $scope.signupFormSubmit = function() {
     console.log($scope.email);
@@ -8,4 +8,4 @@ signupApp.controller('signup-controller', function ($scope, $http) {
     console.log($scope.passwordConfirm);
   };
 });
-angular.bootstrap(document.getElementById("signup-modal"), ['signup-app']);
+angular.bootstrap(document.getElementById("account-modal"), ['account-app']);

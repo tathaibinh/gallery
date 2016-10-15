@@ -71,128 +71,132 @@
 	<br>
 	<br>
 	<!-- end carousel -->
+	
+	<!-- account setup -->
+	<div class="container" ng-app="account-app" id="account-modal">
+		<!-- login -->
+		<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby = "myloginmodal" aria-hidden="true" style="display: none;">
+			<div class="modal-dialog">
+				<div class="loginmodal-container">
+					<!-- modal heading -->
+					<div class="panel panel-heading">
+						<div class="panel-title">Login</div>
+						<div style="float: right; font-size: 80%; position:relative; top: -10px"><a id="login-forget" href="#">Forget password?</a></div>
+					</div>
+					<!-- modal body -->
+					<div style="padding-top: 30px" class="panel-body">
 
-	<!-- login -->
-	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby = "myloginmodal" aria-hidden="true" style="display: none;">
-		<div class="modal-dialog">
-			<div class="loginmodal-container">
-				<!-- modal heading -->
-				<div class="panel panel-heading">
-					<div class="panel-title">Login</div>
-					<div style="float: right; font-size: 80%; position:relative; top: -10px"><a id="login-forget" href="#">Forget password?</a></div>
-				</div>
-				<!-- modal body -->
-				<div style="padding-top: 30px" class="panel-body">
-
-					<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-					<form id="login-form" class="form-horizontal" role="form">
-						<!-- text and password input -->
-						<div style="margin-bottom: 15px" class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							<input id="login-email" class="form-control" type="text" name="email" value="" placeholder="Email">
-						</div>
-
-						<div style="margin-bottom: 15px" class="input-group">
-							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-							<input id="login-password" class="form-control" type="password" name="password" value="" placeholder="Password">
-						</div>
-
-						<!-- checkbox for remember me -->
-						<div class="input-group">
-							<div class="checkbox">
-								<label>
-									<input id= "login-rember" type="checkbox" name="remember" value="1">Remember me
-								</label>
+						<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+						<form id="login-form" class="form-horizontal" role="form">
+							<!-- text and password input -->
+							<div style="margin-bottom: 15px" class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input id="login-email" class="form-control" type="text" name="email" value="" placeholder="Email">
 							</div>
-						</div>
-						
-						<!-- login button -->
-						<div style="margin-top: 10px" class="form-group">
-							<div class="col-md-12">
-								<a id="login-button" href="#" class="btn btn-default">Login</a>
+
+							<div style="margin-bottom: 15px" class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+								<input id="login-password" class="form-control" type="password" name="password" value="" placeholder="Password">
 							</div>
-						</div>
-						
-						<!-- create account if user dont have one -->
-						<div class="form-group">
-	            <div class="col-md-12 control">
-	                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-	                  <span style="color: #777">Don't have an account?</span> 
-	                	<a href="#" onclick="$('#login-modal').modal('hide'); $('#signup-modal').modal('show')">
-	                    Sign Up Here
-	               		</a>
-	                </div>
-	            </div>
-	       	 	</div>
 
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end login-->
-
-	<!-- signup -->
-	<div ng-app="signup-app" class="modal fade" id="signup-modal" role="dialog" aria-labelledby="mysignupmodal" aria-hidden="true" style="display: none;">
-		<div class="modal-dialog">
-			<div class="loginmodal-container">
-				<!-- signup heading -->
-				<div class="panel panel-heading">
-					<div class="panel-title">Sign Up</div>
-					<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signup-modal').modal('hide'); $('#login-modal').modal('show')">Login</a></div>
-				</div>
-				<!-- signup boday -->
-				<div class="panel-body">
-					<form ng-controller="signup-controller" ng-submit="signupFormSubmit()" class="form-horizontal" role="form">
-
-						<div class="form-group">
-							<label for="email" class="col-md-3 control-label">Email</label>
-							<div class="col-md-9">
-								<input id="signup-email" type="text" class="form-control" name="email" placeholder="Email Address" ng-model="email">
+							<!-- checkbox for remember me -->
+							<div class="input-group">
+								<div class="checkbox">
+									<label>
+										<input id= "login-rember" type="checkbox" name="remember" value="1">Remember me
+									</label>
+								</div>
 							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="firstname" class="col-md-3 control-label">First Name</label>
-							<div class="col-md-9">
-								<input id="signup-firstname" type="text" class="form-control" name="firstname" placeholder="First Name" ng-model="firstname">
+							
+							<!-- login button -->
+							<div style="margin-top: 10px" class="form-group">
+								<div class="col-md-12">
+									<a id="login-button" href="#" class="btn btn-default">Login</a>
+								</div>
 							</div>
-						</div>
+							
+							<!-- create account if user dont have one -->
+							<div class="form-group">
+		            <div class="col-md-12 control">
+		                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+		                  <span style="color: #777">Don't have an account?</span> 
+		                	<a href="#" onclick="$('#login-modal').modal('hide'); $('#signup-modal').modal('show')">
+		                    Sign Up Here
+		               		</a>
+		                </div>
+		            </div>
+		       	 	</div>
 
-						<div class="form-group">
-							<label for="lastname" class="col-md-3 control-label">Last Name</label>
-							<div class="col-md-9">
-								<input id="signup-lastname" type="text" class="form-control" name="lastname" placeholder="Last Name" ng-model="lastname">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="password" class="col-md-3 control-label">Password</label>
-							<div class="col-md-9">
-								<input id="signup-password" type="password" class="form-control" name="password" placeholder="Password" ng-model="password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="password" class="col-md-3 control-label">Confirm Password</label>
-							<div class="col-md-9">
-								<input id="signup-password-confirm" type="password" class="form-control" name="passwordAgain" placeholder="Re-type Your Password" ng-model="passwordConfirm">
-							</div>
-						</div>
-
-						<!-- signup button -->
-						<div class="form-group">
-							<div class="col-md-offset-3 col-md-9">
-								<button id="signup-button" type="submit" class="btn btn-default">Sign Up</button>
-							</div>
-						</div>
-
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
+		<!-- end login-->
+
+		<!-- signup -->
+		<div class="modal fade" id="signup-modal" role="dialog" aria-labelledby="mysignupmodal" aria-hidden="true" style="display: none;">
+			<div class="modal-dialog">
+				<div class="loginmodal-container">
+					<!-- signup heading -->
+					<div class="panel panel-heading">
+						<div class="panel-title">Sign Up</div>
+						<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signup-modal').modal('hide'); $('#login-modal').modal('show')">Login</a></div>
+					</div>
+					<!-- signup boday -->
+					<div class="panel-body">
+						<form ng-controller="signup-controller" ng-submit="signupFormSubmit()" class="form-horizontal" role="form">
+
+							<div class="form-group">
+								<label for="email" class="col-md-3 control-label">Email</label>
+								<div class="col-md-9">
+									<input id="signup-email" type="text" class="form-control" name="email" placeholder="Email Address" ng-model="email">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="firstname" class="col-md-3 control-label">First Name</label>
+								<div class="col-md-9">
+									<input id="signup-firstname" type="text" class="form-control" name="firstname" placeholder="First Name" ng-model="firstname">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="lastname" class="col-md-3 control-label">Last Name</label>
+								<div class="col-md-9">
+									<input id="signup-lastname" type="text" class="form-control" name="lastname" placeholder="Last Name" ng-model="lastname">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="password" class="col-md-3 control-label">Password</label>
+								<div class="col-md-9">
+									<input id="signup-password" type="password" class="form-control" name="password" placeholder="Password" ng-model="password">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="password" class="col-md-3 control-label">Confirm Password</label>
+								<div class="col-md-9">
+									<input id="signup-password-confirm" type="password" class="form-control" name="passwordAgain" placeholder="Re-type Your Password" ng-model="passwordConfirm">
+								</div>
+							</div>
+
+							<!-- signup button -->
+							<div class="form-group">
+								<div class="col-md-offset-3 col-md-9">
+									<button id="signup-button" type="submit" class="btn btn-default">Sign Up</button>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end signup -->
 	</div>
-	<!-- end signup -->
+	<!-- end account setup -->
 
 	<!-- footer -->
 	<footer class="container-fluid bgfooter text-center">
@@ -203,8 +207,8 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<script src="js/homePage.js"></script>
-	<script src="js/user.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/account.js"></script>
 </body>
 
 </html>
