@@ -37,8 +37,8 @@
 	<!-- end navbar -->
 
 	<!-- carousel! -->
-	<div ng-app="slideShowApp" class="container">
-		<div id="slider" ng-controller="slideShowContr" class="carousel slide" data-ride="carousel">
+	<div ng-app="carousel-app" class="container">
+		<div id="slider" ng-controller="carousel-controller" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#slider" data-slide-to="1" class="active"></li>
@@ -133,7 +133,7 @@
 	<!-- end login-->
 
 	<!-- signup -->
-	<div class="modal fade" id="signup-modal" role="dialog" aria-labelledby ="mysignupmodal" aria-hidden="true" style="display: none;">
+	<div ng-app="signup-app" class="modal fade" id="signup-modal" role="dialog" aria-labelledby="mysignupmodal" aria-hidden="true" style="display: none;">
 		<div class="modal-dialog">
 			<div class="loginmodal-container">
 				<!-- signup heading -->
@@ -143,12 +143,14 @@
 				</div>
 				<!-- signup boday -->
 				<div class="panel-body">
-					<form class="form-horizontal" role="form">
+					<p>{{ test }}</p>
+					<form ng-controller="signup-controller" ng-submit="signupFormSubmit()" class="form-horizontal" role="form">
 
 						<div class="form-group">
 							<label for="email" class="col-md-3 control-label">Email</label>
 							<div class="col-md-9">
-								<input id="signup-email" type="text" class="form-control" name="email" placeholder="Email Address">
+								<input id="signup-email" type="text" class="form-control" name="email" placeholder="{{ test }}">
+								<!-- <input id="signup-email" type="text" class="form-control" name="email" placeholder="Email Address"> -->
 							</div>
 						</div>
 
@@ -202,8 +204,9 @@
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="//code.angularjs.org/1.5.8/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="js/homePage.js"></script>
+	<script src="js/user.js"></script>
 </body>
 
 </html>
