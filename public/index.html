@@ -143,49 +143,47 @@
 				</div>
 				<!-- signup boday -->
 				<div class="panel-body">
-					<p>{{ test }}</p>
 					<form ng-controller="signup-controller" ng-submit="signupFormSubmit()" class="form-horizontal" role="form">
 
 						<div class="form-group">
 							<label for="email" class="col-md-3 control-label">Email</label>
 							<div class="col-md-9">
-								<input id="signup-email" type="text" class="form-control" name="email" placeholder="{{ test }}">
-								<!-- <input id="signup-email" type="text" class="form-control" name="email" placeholder="Email Address"> -->
+								<input id="signup-email" type="text" class="form-control" name="email" placeholder="Email Address" ng-model="email">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="firstname" class="col-md-3 control-label">First Name</label>
 							<div class="col-md-9">
-								<input id="signup-firstname" type="text" class="form-control" name="firstname" placeholder="First Name">
+								<input id="signup-firstname" type="text" class="form-control" name="firstname" placeholder="First Name" ng-model="firstname">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="lastname" class="col-md-3 control-label">Last Name</label>
 							<div class="col-md-9">
-								<input id="signup-lastname" type="text" class="form-control" name="lastname" placeholder="Last Name">
+								<input id="signup-lastname" type="text" class="form-control" name="lastname" placeholder="Last Name" ng-model="lastname">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="password" class="col-md-3 control-label">Password</label>
 							<div class="col-md-9">
-								<input id="signup-password" type="password" class="form-control" name="password" placeholder="Password">
+								<input id="signup-password" type="password" class="form-control" name="password" placeholder="Password" ng-model="password">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="password" class="col-md-3 control-label">Confirm Password</label>
 							<div class="col-md-9">
-								<input id="signup-password-confirm" type="password" class="form-control" name="password" placeholder="Re-type Your Password">
+								<input id="signup-password-confirm" type="password" class="form-control" name="passwordAgain" placeholder="Re-type Your Password" ng-model="passwordConfirm">
 							</div>
 						</div>
 
 						<!-- signup button -->
 						<div class="form-group">
 							<div class="col-md-offset-3 col-md-9">
-								<button id="signup-button" type="button" class="btn btn-default">Sign Up</button>
+								<button id="signup-button" type="submit" class="btn btn-default">Sign Up</button>
 							</div>
 						</div>
 
