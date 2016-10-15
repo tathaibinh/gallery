@@ -12,18 +12,24 @@ mongoose.connect(config.database);
 
 exports.setup = function (req, res) {
 	var user = new User({
-		email: "kimoneeboy@yahoo.ca",
-		first_name: "Jeffery",
-		last_name: "Zhang",
-		password: "1234567",
-		confirm_password: "1234567",
-		admin: true
+		// email: "kimoneeboy@yahoo.ca",
+		// first_name: "Jeffery",
+		// last_name: "Zhang",
+		// password: "1234567",
+		// confirm_password: "1234567",
+		// admin: true
 		// email:req.query.email,
 		// first_name: req.query.first_name,
 		// last_name: req.query.last_name,
 		// password: req.query.password,
 		// confirm_password: req.query.confirm_password,
 		// admin: true
+		email:req.body.email,
+		first_name: req.body.first_name,
+		last_name: req.body.last_name,
+		password: req.body.password,
+		confirm_password: req.body.confirm_password,
+		admin: false
 	});
 
 	user.save(function (err) {
@@ -38,7 +44,7 @@ exports.setup = function (req, res) {
 
 exports.listUsers = function(req,res){
 	User.find({},function(err,users){
-		res.send(JSON.stringify(users),null,4);
+		res.send(JSON.stringify(users,null,4));
 	})
 }
 
