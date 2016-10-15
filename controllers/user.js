@@ -18,18 +18,21 @@ exports.setup = function (req, res) {
 		// password: "1234567",
 		// confirm_password: "1234567",
 		// admin: true
+
+		//get method
 		// email:req.query.email,
 		// first_name: req.query.first_name,
 		// last_name: req.query.last_name,
 		// password: req.query.password,
 		// confirm_password: req.query.confirm_password,
 		// admin: true
+
 		email:req.body.email,
 		first_name: req.body.first_name,
 		last_name: req.body.last_name,
 		password: req.body.password,
 		confirm_password: req.body.confirm_password,
-		admin: false
+		admin: true
 	});
 
 	user.save(function (err) {
