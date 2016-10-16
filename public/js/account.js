@@ -1,7 +1,30 @@
+
+var accountApp = angular.module('account-app', []);
+//fill the form of login and encoded user infomation and send the http request out.
+accountApp.controller('login-controller', function ($scope, $http) {
+  $scope.loginFormSubmit = function() {
+    // need to set this in order to make the way1 of post work
+    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+    // $http.post way to do it
+    var data = $.param({
+      'email' : $scope.email,
+      'password' : $scope.password,
+      'remember_me': $scope.remember_me
+    });
+    console.log(data);
+
+    $http.post('authenticate', data)
+    .success(function (data, status, headers, config) {
+        console.log(headers);
+    })
+    .error(function (data, status, header, config) {
+    });
+  };
+});
+
 //fill the form of signup and encoded user infomation and send the http request out. There
 //are two post ways and one get way to inplement it.
-var signupApp = angular.module('account-app', []);
-signupApp.controller('signup-controller', function ($scope, $http) {
+accountApp.controller('signup-controller', function ($scope, $http) {
   $scope.signupFormSubmit = function() {
     // need to set this in order to make the way1 of post work
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
@@ -11,7 +34,7 @@ signupApp.controller('signup-controller', function ($scope, $http) {
       'first_name' : $scope.firstname,
       'last_name' : $scope.lastname,
       'password' : $scope.password,
-      'confirm_password' : $scope.passwordConfirm
+      'confirm_password' : $scope.confirm_password
     });
 
     $http.post('setup', data)

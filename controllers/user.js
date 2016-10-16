@@ -54,13 +54,17 @@ exports.listUsers = function(req,res){
 
 
 exports.authenticate = function(req, res){
+	// console.log(req);
+	//the req received successfully and contain the correct content
 	User.findOne({
 		email: req.body.email,
 	}, function(err,user){
+		//the req was throwed as an err here, why?
 		if(err) throw err;
-
+		//the req content did not come into here!
 		if(!user){
 			res.send(JSON.stringify({succss: false, message: 'Authentication failed. User not found.'}));
+			console.log("I am here3");
 		}else if(user){
 			if(user.password != req.body.password){
 				res.send(JSON.stringify({succss: false, message: 'Authentication failed. Wrong password.'}));
@@ -68,6 +72,7 @@ exports.authenticate = function(req, res){
 				var token = jwt.sign(user, db.secret,{
 					// expiresInMinutes: 1440
 				});
+				console.log("I am here4");
 
 				res.send(JSON.stringify({
 					succss: true,
