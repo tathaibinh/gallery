@@ -4,12 +4,13 @@ var config = require('../config/config.json')
 var jwt = require('jsonwebtoken')
 var db = require('../config/config.json')
 
-
+//connet to the database
 mongoose.connect(config.database);
 
 
 
-
+//server got the request, create a new user and then unencode the request
+//finally save the data into database return the saving successfully massages
 exports.setup = function (req, res) {
 	var user = new User({
 		// email: "kimoneeboy@yahoo.ca",
@@ -44,7 +45,7 @@ exports.setup = function (req, res) {
   		res.send(JSON.stringify({ success: true }, null, 4));
 	});
 }
-
+//back door in order to see data in database
 exports.listUsers = function(req,res){
 	User.find({},function(err,users){
 		res.send(JSON.stringify(users,null,4));

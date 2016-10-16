@@ -1,7 +1,9 @@
+//fill the form of signup and encoded user infomation and send the http request out. There
+//are two post ways and one get way to inplement it.
 var signupApp = angular.module('account-app', []);
 signupApp.controller('signup-controller', function ($scope, $http) {
   $scope.signupFormSubmit = function() {
-    // need to set this in order for it to work
+    // need to set this in order to make the way1 of post work
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
     // $http.post way1 to do it
     var data = $.param({
