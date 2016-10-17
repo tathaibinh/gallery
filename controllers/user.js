@@ -60,20 +60,22 @@ exports.authenticate = function(req, res){
 		email: req.body.email,
 	}, function(err,user){
 		//the req was throwed as an err here, why?
+		// console.log("I am here1");
 		if(err) throw err;
+		// console.log("I am here2");
+		// console.log(user);
 		//the req content did not come into here!
 		if(!user){
 			res.send(JSON.stringify({succss: false, message: 'Authentication failed. User not found.'}));
-			console.log("I am here3");
+			// console.log("I am here3");
 		}else if(user){
 			if(user.password != req.body.password){
 				res.send(JSON.stringify({succss: false, message: 'Authentication failed. Wrong password.'}));
 			}else{
+				// console.log("I am here4");
 				var token = jwt.sign(user, db.secret,{
 					// expiresInMinutes: 1440
 				});
-				console.log("I am here4");
-
 				res.send(JSON.stringify({
 					succss: true,
 					message: 'Enjoy your token!',
