@@ -73,7 +73,7 @@ exports.authenticate = function(req, res){
 				res.send(JSON.stringify({succss: false, message: 'Authentication failed. Wrong password.'}));
 			}else{
 				// console.log("I am here4");
-				var token = jwt.sign(user, db.secret,{
+				var token = jwt.sign(user, db.secret),{
 					// expiresInMinutes: 1440
 				});
 				res.send(JSON.stringify({
