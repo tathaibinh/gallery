@@ -28,7 +28,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Album</a></li>
 						<li><a href="#">Artist</a></li>
-						<li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+						<li><a href="#" id="hello-user" data-toggle="modal" data-target="#login-modal">Login</a>
 					</ul>
 				</div>
 			</div>
@@ -181,6 +181,10 @@
 								<div class="col-md-9">
 									<input id="signup-password-confirm" type="password" class="form-control" name="passwordAgain" placeholder="Re-type Your Password" ng-model="confirm_password">
 								</div>
+							</div>
+
+							<div class="form-group">
+								{{ status }}
 							</div>
 
 							<!-- signup button -->

@@ -37,12 +37,16 @@ exports.setup = function (req, res) {
 	});
 
 	user.save(function (err) {
-		if (err) throw err;
+		var status = true;
+
+		if (err) {
+			status = false;
+		}
 
 		console.log('User saved successfully');
-		
+
 		res.setHeader('Content-Type', 'application/json');
-  		res.send(JSON.stringify({ success: true }, null, 4));
+  		res.send(JSON.stringify({ success: status }, null, 4));
 	});
 }
 //back door in order to see data in database

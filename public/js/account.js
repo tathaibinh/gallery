@@ -31,15 +31,23 @@ accountApp.controller('signup-controller', function ($scope, $http) {
     // $http.post way1 to do it
     var data = $.param({
       'email' : $scope.email,
-      'first_name' : $scope.firstname,
-      'last_name' : $scope.lastname,
+      'first_name' : $scope.first_name,
+      'last_name' : $scope.last_name,
       'password' : $scope.password,
       'confirm_password' : $scope.confirm_password
     });
 
     $http.post('setup', data)
-    .success(function (data, status, headers, config) {
-        console.log(headers);
+    .success(function (response, status, headers, config) {
+        if (response.success) {
+            $scope.status = "you have succesfully created an account!";
+        }else{
+            $scope.status = "something went wrong on our end!";
+        }
+        document.getElementById("hello-user").innerHTML = "Hi " + $scope.first_name;
+        setTimeout(function(arg1) {
+            $('#signup-modal').modal('hide');
+        }, 2000);
     })
     .error(function (data, status, header, config) {
     });
